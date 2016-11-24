@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">  
+                .tooltip{  
+                    position: absolute;           
+                    text-align: center;
+                    padding: 10px;             
+                    margin: 5px;
+                    font: 20px sans-serif;        
+                    background: #FFDEAD;   
+                    border: 1px;      
+                    border-radius: 2px;           
+                   pointer-events: none;
+                }      
+                </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>大阪维新会</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+    <div id="formbackground" style="position:absolute; width:100%; height:160%; z-index:-1">  
+   <img src="images/fss.jpg" height="100%" width="100%"/>  
+    </div>
+   <header id="header">
+       
+
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+                
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">主页</a></li>
+                        <li><a href="about-us.html">党派总览</a></li>
+                        <li><a href="services.html">执政联盟</a></li>
+                       
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他党派 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="zmd.html">自民党</a></li>
+                                <li><a href="mjd.html">民进党</a></li>
+                                <li><a href="blog-item.html">公明党</a></li>
+                                <li><a href="pricing.html">共产党</a></li>
+                                <li><a href="dbwxh.html">大阪维新会</a></li>
+                                <li><a href="shortcodes.html">大家党</a></li>
+                                <li><a href="wdp.html">无党派</a></li>
+                                <li><a href="csshdzd.html">冲绳社会大众党</a></li>
+                            </ul>
+                        </li>
+                         
+                        <li><a href="contact-us.html">民众右倾化指数</a></li>
+                        <li><a href="cyy\cyylb.html">日本参议院议员</a></li>
+                         <li><a href="portfolio.html">选举预测</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+ <script src="d3.js"></script>
+  <script src="echarts.js"></script>
+    <div id="main" style="width: 600px;height:450px;left:600px;top:250px;position: absolute;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+    option = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'right',
+        data: ['大阪维新会总比率']
+    },
+    series : [
+        {
+            type: 'pie',
+            radius : ['40%', '55%'],
+            label: {
+                normal: {
+                    position: 'center'
+                }  
+            },
+            data:[
+                {
+                    value:5, name:'大阪维新会总比率',
+                    label: {
+                        normal: {
+                            formatter: '{d} %',
+                            textStyle: {
+                                fontSize: 18
+                            }
+                        }
+                    }
+                },
+                {
+                    value:141, name:'其他党派',
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+
+                            color: '#999'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            formatter: '\n大阪维新会总比率\n(5人)'
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+  <div class="ditu">
+  <script>
+//cha
+    
+        
+    //源代码开始
+    var width = 1340,
+    height = 950;
+
+    var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+    var projection = d3.geo.albers();
+    var path = d3.geo.path()
+    .projection(projection);
+  
+    projection.origin([135, 29])
+    projection.translate([350, 745])
+    projection.parallels([24.6, 43.6])
+    projection.scale(2400)
+//测试
+  
+
+
+         //jiezhi               
+     d3.json("japan.json", function(data,dataset) {
+        
+       
+
+      var tooltip =d3.select("body")  
+                        .append("div")  
+                        .attr("opacity",0.0)  
+                        .attr("class","tooltip")  
+                        ;  
+
+      var China =svg.append("g");  
+          
+        //绘制个省份的path路径  
+        var provinces =China.selectAll("path")  
+                        .data(data.features)  
+                        .enter()  
+                        .append("path")  
+                        //.style("fill","#9393FF")  
+                        .attr("stroke","white")  
+                        .attr("stroke-width","1px")  
+                        .attr("d",path)
+                        .text(function(e)  
+                {  
+                return e.properties.name;  
+                })  
+            .attr("font-size",12);
+
+            var datas=[];  
+              
+
+            for(var i=0; i<47; i++)  
+            {  
+                var name= data.features[i].properties.name_local;  
+                var value= data.features[i].properties.provnum_ne; 
+                
+                 datas[i]=value;     //例如 datas[北京]=14149  
+                      //datam 数组用于求中间值  
+            }  
+          //alert(datas[3]);
+            //console.log("datas--------------------------------");  
+            //console.log(datas);  
+            
+            
+          var maxdata =d3.max( datas, function(e,i)  
+            {  
+
+                return datas[i];  
+            });  
+          //alert("1");
+            var mindata=0;  
+              
+            //定义一个线性比例尺  
+            var linear = d3.scale.linear()  
+                            .domain([mindata,maxdata])  
+                            .range([0,1]);  
+              
+            //定义颜色  
+            var b=d3.rgb(255,0,128);  
+            var a=d3.rgb(147,147,255);  
+              
+            //设置颜色插值  
+            var Color =d3.interpolate(a,b);  
+          
+        //给个省份填充颜色  
+         provinces.style("fill", function(e,j){
+            var t = linear( e.properties.provnum_ne);
+            //alert();
+            var color = Color(t);
+            return color.toString();
+        })
+          
+        .on("mouseover", function(e,j){d3.select(this).style("fill", "#E6E6FA");
+                         tooltip.html("<h4>"+e.properties.name_local+"</h4><table>"+
+                              "<tr><td>总人数</td><td>"+e.properties.labelrank+"</td></tr>"+"<tr><td>大阪维新会</td><td>"+e.properties.provnum_ne+"</td></tr>")  
+                    .style("left",(d3.event.pageX)+"px") 
+                    .style("top",(d3.event.pageY+20)+"px")  
+                    .style("opacity",1.0);
+                        
+     })
+
+        .on("mouseout", function(e,j){
+            var t = linear( e.properties.provnum_ne);
+            d3.select(this).style("fill", Color(t)); 
+          tooltip.html("1")
+          .style("opacity",0.0);});
+
+           
+//显示渐变矩形条  
+        var defs = svg.append("defs");  
+          
+        var linearGradient = defs.append("linearGradient")  
+                                .attr("id","linearColor")  
+                                //颜色渐变方向  
+                                .attr("x1","0%")  
+                                .attr("y1","0%")  
+                                .attr("x2","100%")  
+                                .attr("y2","0%");  
+        //设置矩形条开始颜色  
+        var stop1 = linearGradient.append("stop")  
+                                  .attr("offset","0%")  
+                                  .attr("stop-color",a.toString());  
+        //设置结束颜色  
+        var stop2 = linearGradient.append("stop")  
+                                .attr("offset","100%")  
+                                .attr("stop-color",b.toString());  
+          
+        var colorRect = svg.append("rect")  
+                        //x,y 矩形的左上角坐标  
+                        .attr("x",50)  
+                        .attr("y",50)  
+                        //矩形的宽高  
+                        .attr("width",250)  
+                        .attr("height",15)  
+                        //引用上面的id 设置颜色  
+                        .style("fill","url(#"+linearGradient.attr("id")+")");  
+        //设置文字  
+    
+        //数据初值  
+        var startText = svg.append("text")  
+                        .attr("x",50)  
+                        .attr("y",45)  
+                        .text(mindata);   
+        //数据中间值  
+       
+
+        var endText =svg.append("text")  
+                    .attr("x",300)  
+                    .attr("y",45)  
+                    .text(maxdata);  
+    });  
+</script>
+</div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+</body>
+</html>
